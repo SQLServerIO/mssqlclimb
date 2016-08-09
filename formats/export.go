@@ -2,7 +2,7 @@ package formats
 
 import "github.com/lukasmartinelli/pgclimb/pg"
 
-// Supports storing data in different formats
+// DataFormat supports storing data in different formats
 type DataFormat interface {
 	WriteHeader(columns []string) error
 	WriteRow(map[string]interface{}) error

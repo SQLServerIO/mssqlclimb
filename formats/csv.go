@@ -28,9 +28,8 @@ func (f *CsvFormat) WriteHeader(columns []string) error {
 	f.columns = columns
 	if f.headerRow {
 		return f.writer.Write(columns)
-	} else {
-		return nil
 	}
+	return nil
 }
 
 func (f *CsvFormat) Flush() error { return nil }

@@ -43,9 +43,8 @@ func NewXlsxFormat(fileName string, sheetName string) (*XlsxFormat, error) {
 func (f *XlsxFormat) Flush() error {
 	if f.fileName == "" {
 		return f.file.Write(os.Stdout)
-	} else {
-		return f.file.Save(f.fileName)
 	}
+	return f.file.Save(f.fileName)
 }
 
 func (f *XlsxFormat) WriteHeader(columns []string) error {
