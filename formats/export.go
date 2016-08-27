@@ -1,6 +1,6 @@
 package formats
 
-import "github.com/lukasmartinelli/pgclimb/pg"
+import "github.com/lukasmartinelli/pgclimb/mssql"
 
 // DataFormat supports storing data in different formats
 type DataFormat interface {
@@ -9,8 +9,9 @@ type DataFormat interface {
 	Flush() error
 }
 
+//Export does something
 func Export(query string, connStr string, format DataFormat) error {
-	db, err := pg.Connect(connStr)
+	db, err := mssql.Connect(connStr)
 	if err != nil {
 		return err
 	}
