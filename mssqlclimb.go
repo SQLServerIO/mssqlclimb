@@ -10,8 +10,8 @@ import (
 	"unicode/utf8"
 
 	"github.com/andrew-d/go-termutil"
-	"github.com/lukasmartinelli/pgclimb/formats"
-	"github.com/lukasmartinelli/pgclimb/pg"
+	"github.com/sqlserverio/mssqlclimb/formats"
+	"github.com/sqlserverio/mssqlclimb/mssql"
 	"github.com/urfave/cli"
 )
 
@@ -39,7 +39,7 @@ func parseWriter(c *cli.Context) io.Writer {
 }
 
 func exportFormat(c *cli.Context, format formats.DataFormat) {
-	connStr := pg.ParseConnStr(c)
+	connStr := mssql.ParseConnStr(c)
 	query, err := parseQuery(c)
 	exitOnError(err)
 	err = formats.Export(query, connStr, format)
@@ -82,7 +82,7 @@ func main() {
 	app.Flags = []cli.Flag{
 		cli.StringFlag{
 			Name:   "dbname, d",
-			Value:  "postgres",
+			Value:  "master",
 			Usage:  "database",
 			EnvVar: "DB_NAME",
 		},
@@ -94,13 +94,13 @@ func main() {
 		},
 		cli.StringFlag{
 			Name:   "port, p",
-			Value:  "5432",
+			Value:  "1433",
 			Usage:  "port",
 			EnvVar: "DB_PORT",
 		},
 		cli.StringFlag{
 			Name:   "username, U",
-			Value:  "postgres",
+			Value:  "sa",
 			Usage:  "username",
 			EnvVar: "DB_USER",
 		},

@@ -1,6 +1,6 @@
 package formats
 
-import "github.com/lukasmartinelli/pgclimb/mssql"
+import "github.com/sqlserverio/mssqlclimb/mssql"
 
 // DataFormat supports storing data in different formats
 type DataFormat interface {
