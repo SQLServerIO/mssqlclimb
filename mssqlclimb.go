@@ -75,9 +75,9 @@ func exitOnError(err error) {
 
 func main() {
 	app := cli.NewApp()
-	app.Name = "pgclimb"
-	app.Version = "0.2"
-	app.Usage = "Export data from PostgreSQL into different data formats"
+	app.Name = "mssqlclimb"
+	app.Version = "0.1"
+	app.Usage = "Export data from SQL Server into different data formats"
 
 	app.Flags = []cli.Flag{
 		cli.StringFlag{
@@ -100,7 +100,7 @@ func main() {
 		},
 		cli.StringFlag{
 			Name:   "username, U",
-			Value:  "sa",
+			Value:  "",
 			Usage:  "username",
 			EnvVar: "DB_USER",
 		},
